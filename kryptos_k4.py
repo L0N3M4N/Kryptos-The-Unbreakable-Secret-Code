@@ -1,20 +1,44 @@
-
 import random 
-import sys
 import time
 import math
 
+# solved
 k1 = 'EMUFPHZLRFAXYUSDJKZLDKRNSHGNFIVJYQTQUXQBQVYUVLLTREVJYQTMKYRDMFD'
 plaintext1 = 'BETWEENSUBTLESHADINGANDTHEABSENCEOFLIGHTLIESTHENUANCEOFIQLUSION'
 posct1 = 0
 
+# solved
 k2 =         'VFPJUDEEHZWETZYVGWHKKQETGFQJNCEGGWHKK?DQMCPFQZDQMMIAGPFXHQRLGTIMVMZJANQLVKQEDAGDVFRPJUNGEUNAQZGZLECGYUXUEENJTBJLBQCRTBJDFHRRYIZETKZEMVDUFKSJHKFWHKUWQLSZFTIHHDDDUVH?DWKBFUFPWNTDFIYCUQZEREEVLDKFEZMOQQJLTTUGSYQPFEUNLAVIDXFLGGTEZ?FKZBSFDQVGOGIPUFXHHDRKFFHQNTGPUAECNUVPDJMQCLQUMUNEDFQELZZVRRGKFFVOEEXBDMVPNFQXEZLGREDNQFMPNZGLFLPMRJQYALMGNUVPDXVKPDQUMEBEDMHDAFMJGZNUPLGEXWJLLAETG'
 plaintext2 = 'ITWASTOTALLYINVISIBLEHOWSTHATPOSSIBLE?THEYUSEDTHEEARTHSMAGNETICFIELDXTHEINFORMATIONWASGATHEREDANDTRANSMITTEDUNDERGRUUNDTOANUNKNOWNLOCATIONXDOESLANGLEYKNOWABOUTTHIS?THEYSHOULDITSBURIEDOUTTHERESOMEWHEREXWHOKNOWSTHEEXACTLOCATION?ONLYWWTHISWASHISLASTMESSAGEXTHIRTYEIGHTDEGREESFIFTYSEVENMINUTESSIXPOINTFIVESECONDSNORTHSEVENTYSEVENDEGREESEIGHTMINUTESFORTYFOURSECONDSWESTXLAYERTWO'
 posct2 = 0
 
+
+# remain unsolved until now  
+# copy this original k4 found in CIA sites
+
 k4 = 'OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR'
-plaintext4 = 'BERLINCLOCK'
+plaintext4 = 'BERLINCLOCK' 
 posct4 = 63
+
+# veteran_cia_ = """
+# In 2010, a CIA veteran named David Stein proposed that the last 97 characters of K4 spell out the message “BERLINCLOCK”. 
+# But this theory was later debunked by the artist himself.
+# In 2016, Sanborn revealed that the first letter of the plaintext of K4 is the letter 'N' and the last letter of the plaintext is 'X'.
+# """
+# print(veteran_cia_)
+
+# hint = """
+#  According to my knowledge cutoff in 2021, the artist James Sanborn has given several hints and clues to help people trying to solve the fourth part of the Kryptos sculpture (K4), however, none of these hints have led to the definite solution of the cipher. Here are some of the hints that have been given:
+# -In 2010, Sanborn revealed that the 64th, 65th, 66th, and 67th characters of the encrypted message spell out the letters "NYPV" which is an acronym for "New York Palimpsest V"
+# -In 2011, he revealed that the plaintext of the first letter is "N" and the last letter of the plaintext is "X"
+# -In 2014, Sanborn said that the plaintext of K4 is a proper noun and its length is less than 80 characters.
+# -In 2016, James Sanborn said that the plaintext of K4 is not a word in any language and it is not a name of a person or place.
+# """
+# print(hint)
+
+
+# python decrypter modified version  
+# create your own version this script is modified.
 
 alph = 'KRYPTOSABCDEFGHIJLMNQUVWXZ'
 
@@ -54,20 +78,7 @@ def findRating(segin, segpt):
             totalmatch += 1
     return(totalmatch)
 
-#Turn k4 into a scrambled string, also return the cyphertext per-scrambled with the eventual BERLINCLOCK letters numbered
-#k4
-#This is k4  = A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q
-#Index in k4 = 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17... 
-#scramlist
-#Index scram = 88 3 76  9 74 81 27 22 70 61 12 13 23  6  9 14 89...
-#scramit (aka scram)
-#New scram = J  C  N  I  L  O  T  S  V  Z  L  M  R  F  I  N  Y... 
-#Will be cipharray
-#Index in BC = [32,66,6,61,19,95,88,2,76,1,74]
-#Will be uplower
-#k4 with up = A  B c  d  e F  g H  i  j  k  l  m  n  o  p  q  
-#Will be fftprep
-#fft 0 or 1 = [1, 1, 0, 0, 0, 1, 0, 1...]        sicne 1, 2, 6, and 8 are BERLINCLOCK indicies
+
 def capsct(strk4):
     testnew = strk4
     
@@ -157,8 +168,7 @@ for i in range(0, 100000):
     #print(kout + ' = ' + scram)
 
     #Test for a match of an English word
-    #fin = open('short.txt')
-    fin = open('words.txt')
+    fin = open('rockyou.txt') # brute forcing match string
 
     for linein in iter(fin):
 
@@ -168,7 +178,7 @@ for i in range(0, 100000):
         #testin = "PALIMPSEST"
         #print(testin)
         
-		#Only look at dictionary words of at least length 6 or greater
+	#Only look at dictionary words of at least length 6 or greater
         if len(testin) > 5:
             testline = ""
             testline = testline + testin + testin + testin + testin + testin
@@ -194,7 +204,7 @@ for i in range(0, 100000):
                 print("Word: " + wordbest)
                 print(scram)
                 #print(ctten)
-		sys.stdout.flush()
+
                 
                 #longerarrout = arrout + [0,0,0]
                 #N = len(longerarrout)
@@ -229,7 +239,5 @@ for i in range(0, 100000):
     fin.close()          
     if ((i % 1000 == 0) and (i > 0)):
         print("Iteration: " + str(i) + " at " + time.strftime('%X %x %Z'))
-	sys.stdout.flush()
 
 print("Done at " + time.strftime('%X %x %Z'))
-sys.stdout.flush()
