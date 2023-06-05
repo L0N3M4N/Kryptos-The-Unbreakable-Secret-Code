@@ -1,8 +1,8 @@
 # Kyptos
 ### About the “Kryptos” Sculpture
 ```txt
-James Sanborn’s sculpture “Kryptos” begins at the entrance to the New Headquarter
-Building and continues in the northwest corner of the New Headquarters Building courtyard.
+James Sanborn’s sculpture “Kryptos” begins at the  entrance to the New Headquarter
+Building and continues in the northwest corner of the CIA New Headquarters Building courtyard.
 
 The theme of this sculpture is “intelligence gathering.” It was dedicated on Nov. 3, 1990. 
 Kryptos incorporates materials native to the United States. A piece of petrified wood supports 
