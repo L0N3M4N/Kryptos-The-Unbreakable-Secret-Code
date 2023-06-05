@@ -11,3 +11,6 @@ On the “paper” are inscribed several enigmatic messages, each written in a d
 The sculpture continues to be a source of pleasure and mystery for Agency employees,with a
 few taking the challenge to “break the code.”
 ```
+```py
+k4 = "OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR"
+```
